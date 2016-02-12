@@ -109,4 +109,19 @@ public class SeqList<T> implements LList<T> {
 		return s;
 
 	}
+	public boolean equals(Object obj){
+        if(this==obj)
+        	return true;
+        if(obj instanceof SeqList){
+        	@SuppressWarnings("unchecked")
+			SeqList<T> list = (SeqList<T>)obj;
+        	for(int i=0;i<this.lenght();i++){
+        		if(this.get(i).equals(list.get(i))){
+        			return false;
+        		}
+        	}
+        	return true;
+        }
+		return false;
+	}
 }
