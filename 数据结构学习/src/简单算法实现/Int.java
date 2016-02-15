@@ -15,7 +15,7 @@ public class Int {
 		String str = "";
 		while (n > 0) {
 			int k = n % 16;
-			str = (char) (k <= 9 ? k + '0' : k + 'A' - 10) + str;
+			str = (char) (k <= 9 ? k +'0': k + 'A' - 10) + str;
 			n /= 16;
 		}
 		return str;
@@ -33,7 +33,10 @@ public class Int {
 
 	public static void main(String args[]) {
 
-		System.out.println(toBinaryString(12).toString());
-		System.out.println(toHexString(12).toString());
+		System.out.println(Integer.toBinaryString(12).toString());
+		System.out.println(Int.toBinaryString(12).toString());
+		System.out.println(Int.toHexString(1227));
+		System.out.println((char)0+'8');
+		System.out.println(toString(12,9));
 	}
 }
