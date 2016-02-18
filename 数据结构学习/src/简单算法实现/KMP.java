@@ -2,6 +2,7 @@ package 简单算法实现;
 
 //不回溯
 //KMP进行串的匹配
+//比Beute_Force算法精妙
 public class KMP {
 	public static int bijiao(String target, String pattern, int begin) {
 

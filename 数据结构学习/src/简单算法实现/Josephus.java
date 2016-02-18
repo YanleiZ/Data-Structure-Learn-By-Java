@@ -6,6 +6,8 @@ import 线性表部分.SeqList;
 
 //约瑟夫环问题
 public class Josephus {
+	private static Scanner sc;
+
 	/*
 	 * public static void main(String[] args) {
 	 * System.out.println("请输入犯人个数、开始的犯人代号、数到的犯人代号："); Scanner sc = new
@@ -34,7 +36,7 @@ public class Josephus {
 
 	public static void main(String[] args) {
 		System.out.println("请输入犯人个数、开始的犯人代号、数到的犯人代号：");
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int s = sc.nextInt()-1;
 		int d = sc.nextInt();
