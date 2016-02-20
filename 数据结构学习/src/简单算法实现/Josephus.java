@@ -5,6 +5,7 @@ import java.util.Scanner;
 import 线性表部分.SeqList;
 
 //约瑟夫环问题
+//依赖于线性表部分构建的线性表类
 public class Josephus {
 	/*
 	 * public static void main(String[] args) {
@@ -20,8 +21,8 @@ public class Josephus {
 		for (int i = 0; i < number; i++) {
 			list.append((char) ('A' + i) + "");
 		}
-		System.out.println("约瑟夫环（" + number + "，" + (start+1) + "，" + distance
-				+ "），" + list.toString());
+		System.out.println("约瑟夫环（" + number + "，" + (start + 1) + "，"
+				+ distance + "），" + list.toString());
 		int i = start;
 		while (list.lenght() > 1) {
 			i = (i + distance - 1) % list.lenght();
@@ -36,7 +37,7 @@ public class Josephus {
 		System.out.println("请输入犯人个数、开始的犯人代号、数到的犯人代号：");
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int s = sc.nextInt()-1;
+		int s = sc.nextInt() - 1;
 		int d = sc.nextInt();
 		new Josephus(n, s, d);
 	}
