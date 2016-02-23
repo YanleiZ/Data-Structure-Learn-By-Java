@@ -54,7 +54,59 @@ public class Expression {
 				}
 			}
 		}
-		return expstr;
+		while (!stack.isEmpty()) {
+			postfix += stack.pop();
 
+		}
+
+		return postfix;
+	}
+
+	public static int value(String postfix) {
+		SeqStack<Integer> stack = new SeqStack<Integer>();
+		int i = 0, result = 0;
+		while (i < postfix.length()) {
+			char ch = postfix.charAt(i);
+			if (ch >= '0' && ch <= '9') {
+				result = 0;
+				while (ch != 's') {
+					result = result * 10 + Integer.parseInt(ch + "");
+					i++;
+					ch = postfix.charAt(i);
+				}
+				i++;
+				stack.push(new Integer(result));
+
+			} else {
+				int y = stack.pop().intValue();
+				int x = stack.pop().intValue();
+				switch (ch) {
+				case '+':
+					result = x + y;
+					break;
+				case '-':
+					result = x - y;
+					break;
+				case '*':
+					result = x * y;
+					break;
+				case '/':
+					result = x / y;
+					break;
+				}
+				stack.push(new Integer(result));
+				i++;
+			}
+		}
+		return stack.pop().intValue();
+	}
+
+	public static void main(String[] args) {
+		String expstr = "121+10*2+(3+7)/2";
+		String postfix = toPostfix(expstr);
+		// int zhi = ;
+		System.out.println(expstr);
+		System.out.println(postfix);
+		System.out.println(value(postfix));
 	}
 }
