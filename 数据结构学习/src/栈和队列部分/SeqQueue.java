@@ -52,7 +52,7 @@ public class SeqQueue<T> implements QQueue<T> {
 		return temp;
 	}
 
-	public String toString() {
+	/*public String toString() {
 		String str = "";
 		if (!isEmpty()) {
 			str += this.element[this.front].toString();
@@ -64,5 +64,5 @@ public class SeqQueue<T> implements QQueue<T> {
 			}
 		}
 		return str + ")";
-	}
+	}*/
 }
