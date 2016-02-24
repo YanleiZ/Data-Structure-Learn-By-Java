@@ -5,6 +5,7 @@ import 栈和队列部分.SeqStack;
 //实现加减乘除的优先顺序的计算
 //toPostfix方法把中缀表达式转换为后缀表达式
 //value方法计算处理为后缀表达式的值
+//1+2*（3-4）+5
 public class Expression {
 	public static String toPostfix(String expstr) {
 		SeqStack<String> stack = new SeqStack<String>(expstr.length());
@@ -50,7 +51,7 @@ public class Expression {
 					if (i < expstr.length()) {
 						ch = expstr.charAt(i);
 					}
-					postfix += "";
+					postfix += " ";
 				}
 			}
 		}
@@ -102,7 +103,7 @@ public class Expression {
 	}
 
 	public static void main(String[] args) {
-		String expstr = "121+10*2+(3+7)/2";
+		String expstr = "1*2+(3+4)/1";
 		String postfix = toPostfix(expstr);
 		// int zhi = ;
 		System.out.println(expstr);
