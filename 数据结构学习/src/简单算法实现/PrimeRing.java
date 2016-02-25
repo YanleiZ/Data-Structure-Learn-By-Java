@@ -25,6 +25,7 @@ public class PrimeRing {
 		System.out.print(ring.toString());
 	}
 
+	//ÅÐ¶ÏÊÇ·ñÎªËØÊý
 	private static boolean isPrime(int k) {
 		if (k == 2) {
 			return true;
@@ -45,7 +46,7 @@ public class PrimeRing {
 
 	public static void main(String args[]) {
 		int j = (int) Math.sqrt(7);
-		System.out.println(isPrime(17));
+		System.out.println(isPrime(101));
 		new PrimeRing(10);
 	}
 }
