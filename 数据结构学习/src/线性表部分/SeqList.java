@@ -124,4 +124,5 @@ public class SeqList<T> implements LList<T> {
         }
 		return false;
 	}
+	
 }

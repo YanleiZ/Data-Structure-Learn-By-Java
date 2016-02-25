@@ -3,6 +3,7 @@ package 简单算法实现;
 import 栈和队列部分.SeqQueue;
 import 线性表部分.SeqList;
 
+//无法求解素数环，isPrime方法是判断是否为素数的
 public class PrimeRing {
 	public PrimeRing(int n) {
 		SeqList<Integer> ring = new SeqList<Integer>(n);
@@ -20,11 +21,11 @@ public class PrimeRing {
 			} else {
 				que.enqueue(new Integer(k));
 			}
-			System.out.print((String)ring.toString());
 		}
+		System.out.print(ring.toString());
 	}
 
-	private boolean isPrime(int k) {
+	private static boolean isPrime(int k) {
 		if (k == 2) {
 			return true;
 		}
@@ -43,6 +44,8 @@ public class PrimeRing {
 	}
 
 	public static void main(String args[]) {
+		int j = (int) Math.sqrt(7);
+		System.out.println(isPrime(17));
 		new PrimeRing(10);
 	}
 }
