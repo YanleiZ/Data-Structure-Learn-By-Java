@@ -15,19 +15,19 @@ public class SeqList<T> implements LList<T> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
+
 		return this.len == 0;
 	}
 
 	@Override
 	public int lenght() {
-		// TODO Auto-generated method stub
+
 		return this.len;
 	}
 
 	@Override
 	public T get(int i) {
-		// TODO Auto-generated method stub
+
 		if (i >= 0 && i < this.len)
 			return (T) this.element[i];
 		return null;
@@ -35,7 +35,7 @@ public class SeqList<T> implements LList<T> {
 
 	@Override
 	public void set(int i, T x) {
-		// TODO Auto-generated method stub
+
 		if (x == null)
 			return;
 		if (i >= 0 && i < this.len)
@@ -46,7 +46,6 @@ public class SeqList<T> implements LList<T> {
 
 	@Override
 	public void insert(int i, T x) {
-		// TODO Auto-generated method stub
 		if (x == null)
 			return;
 		if (this.len == element.length) {
@@ -73,6 +72,7 @@ public class SeqList<T> implements LList<T> {
 	public T remove(int i) {
 		if (this.len == 0 || i < 0 || i > this.len)
 			return null;
+		@SuppressWarnings("unchecked")
 		T old = (T) this.element[i];
 		for (int j = i; j < this.len - 1; j++)
 			this.element[j] = this.element[j + 1];
@@ -81,16 +81,35 @@ public class SeqList<T> implements LList<T> {
 		return old;
 	}
 
+	public void remove(T key) {
+		if (this.len != 0 && key != null)
+			this.remove(this.indexOf(key));
+	}
+
 	@Override
 	public void removeAll() {
-		// TODO Auto-generated method stub
 		this.len = 0;
+	}
+
+	@SuppressWarnings("unused")
+	private int indexOf(T key) {
+		if (key != null)
+			for (int i = 0; i < this.len; i++) {
+				if (this.element[i].equals(key)) {
+					return i;
+				}
+			}
+		return -1;
 	}
 
 	@Override
 	public T search(T key) {
-		// TODO Auto-generated method stub
-		return null;
+		int find = this.indexOf(key);
+		return find == -1 ? null : (T) this.element[find];
+	}
+
+	public boolean contain(T key) {
+		return this.indexOf(key) >= 0;
 	}
 
 	public String toString() {
@@ -109,20 +128,21 @@ public class SeqList<T> implements LList<T> {
 		return s;
 
 	}
-	public boolean equals(Object obj){
-        if(this==obj)
-        	return true;
-        if(obj instanceof SeqList){
-        	@SuppressWarnings("unchecked")
-			SeqList<T> list = (SeqList<T>)obj;
-        	for(int i=0;i<this.lenght();i++){
-        		if(this.get(i).equals(list.get(i))){
-        			return false;
-        		}
-        	}
-        	return true;
-        }
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj instanceof SeqList) {
+			@SuppressWarnings("unchecked")
+			SeqList<T> list = (SeqList<T>) obj;
+			for (int i = 0; i < this.lenght(); i++) {
+				if (this.get(i).equals(list.get(i))) {
+					return false;
+				}
+			}
+			return true;
+		}
 		return false;
 	}
-	
+
 }
