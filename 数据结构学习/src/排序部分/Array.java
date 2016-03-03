@@ -87,14 +87,17 @@ public class Array {
 	}
 
 	// 2.快速排序
-	public static void quickSort(int[] table) {
-		quickSort(table, 0, table.length - 1);
+	// 通过选择基准值，进行冒泡排序
+	public static int[] quickSort(int[] table) {
+		return quickSort(table, 0, table.length - 1);
 	}
 
-	public static void quickSort(int[] table, int begin, int end) {
+	public static int[] quickSort(int[] table, int begin, int end) {
+
 		if (begin < end) {
 			int i = begin, j = end;
 			int vot = table[i];// 第一个值作为基准值
+
 			while (i != j) {
 				while (i < j && vot <= table[j]) {
 					j--;
@@ -114,7 +117,30 @@ public class Array {
 			quickSort(table, i + 1, end);
 
 		}
-		print(table);
+		return table;
+
+	}
+
+	// 选择排序
+	// 1.直接选择排序
+	// 不稳定的排序算法
+	public static void selectSort(int[] table) {
+		for (int i = 0; i < table.length; i++) {
+			int min = i;
+			for (int j = i + 1; j < table.length; j++) {
+				if (table[min] > table[j]) {
+					min = j;
+				}
+				if (min != i) {
+					int temp = table[min];
+					table[min] = table[i];
+					table[i] = temp;
+				}
+			}
+			System.out.println("第" + i + "趟：");
+			print(table);
+		}
+		
 	}
 
 	/*
@@ -141,7 +167,8 @@ public class Array {
 		// halfSort(table);
 		// shellSort(table);
 		// bubbleSort(table);
-		quickSort(table);
+		// print(quickSort(table));
+		selectSort(table);
 	}
 	/*
 	 * private static void insertSort(int[] table) { for (int i = 1; i <
