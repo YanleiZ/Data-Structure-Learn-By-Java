@@ -5,7 +5,6 @@ package 简单算法实现;
 //比Beute_Force算法精妙
 public class KMP {
 	public static int bijiao(String target, String pattern, int begin) {
-
 		if (target != null && pattern.length() > 0
 				&& target.length() >= pattern.length()) {
 			int i = begin, j = 0;
@@ -35,15 +34,6 @@ public class KMP {
 		int j = 0, k = -1;
 		int[] next = new int[pattern.length()];
 		next[0] = -1;
-		// while (j < pattern.length() - 1) {
-		// if (k == -1 || pattern.charAt(j) == pattern.charAt(k)) {
-		// j++;
-		// k++;
-		// next[j] = k;
-		// } else {
-		// k = next[k];
-		// }
-		// }
 		// 改进KMP算法的getNext方法
 		while (j < pattern.length() - 1) {
 			if (k == -1 || pattern.charAt(j) == pattern.charAt(k)) {
